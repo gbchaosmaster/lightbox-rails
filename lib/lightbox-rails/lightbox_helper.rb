@@ -14,8 +14,7 @@ module LightboxRails
                     : filename
 
         title = "#{i + 1} of #{images.size}"
-        cls =
-          "single#{i.zero? ? " first" : i == images.size - 1 ? " last" : ""}"
+        cls = "single" + {0 => " first", images.size - 1 => " last"}[i] || ""
 
         content_tag(:div, :class => cls) do
           content_tag(:a,
